@@ -46,7 +46,7 @@ if len(date_range) == 2:
 filtered_df = df[mask]
 
 # --- メインコンテンツ ---
-st.title("🎤 じんじんのカラオケ歌唱記録🧸 ")
+st.title("じんじんのカラオケ歌唱記録🧸 ")
 
 # 指標表示
 m1, m2, m3, m4 = st.columns(4)
