@@ -1,9 +1,10 @@
+#streamlit実装
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 
 # ページの設定
-st.set_page_config(page_title="My Karaoke Analytics", layout="wide")
+st.set_page_config(page_title="Jinjin's Karaoke Analytics", layout="wide")
 
 @st.cache_data
 def load_data():
@@ -45,12 +46,12 @@ if len(date_range) == 2:
 filtered_df = df[mask]
 
 # --- メインコンテンツ ---
-st.title("🎤 カラオケ歌唱記録ダッシュボード")
+st.title("🎤 じんじんのカラオケ歌唱記録🧸 ")
 
 # 指標表示
 m1, m2, m3, m4 = st.columns(4)
 m1.metric("総歌唱回数", len(filtered_df))
-m2.metric("ユニーク曲数", filtered_df['song'].nunique())
+m2.metric("ユニーク曲数（曲名の数）", filtered_df['song'].nunique())
 m3.metric("最多アーティスト", filtered_df['artist'].mode()[0] if not filtered_df.empty else "-")
 m4.metric("平均キー変更", f"{filtered_df['key_num'].mean():+.1f}" if not filtered_df.empty else "0.0")
 
